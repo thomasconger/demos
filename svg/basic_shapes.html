@@ -5,7 +5,62 @@
 </head>
 <body>
 
-  
+  <section>
+    <p>I like to think of SVG's as instructions for computers to render images rather than images themselves. As a result, SVGs like this square are infinitely scaleable (that means that you can make them really big, or just medium sized. SVGs depicted at a really small size would still look like pixel art</p>
+    <svg width="500" height="500" >
+      <rect width="500" height="500" fill="gray" />
+    </svg>
+  </section>
+
+  <section>
+    <p>SVGs are a composed of a View Box, a View Port, and composite elements. The three circles below are all actually complete circles, but their positions on the coordinate plane of the SVG are different. </p>
+    <svg width="500" height="500" style="background-color: grey;">
+      <circle r="100" cs="0" cy="0" fill="lightgrey" />
+      <circle r="100" cx="250" cy="250" fill="darkgray""/>
+      <circle r="100" cx="500" cy="500"fill="dimgray"/>
+    </svg>
+  </section>
+
+  <section>
+    <p>If we change a few aspects of our view box, we can see all of each circle. </p>
+    <svg width="500" height="500" viewBox="-250 -250 1000 1000"style="background-color: grey;">
+      <circle r="100" cs="0" cy="0" fill="lightgrey" />
+      <circle r="100" cx="250" cy="250" fill="darkgray""/>
+      <circle r="100" cx="500" cy="500"fill="dimgray"/>
+    </svg>
+  </section>
+
+  <section>
+    <p>If we change our view port (the width and height dimensions) we can change the size of the image that ends up being drawn. Beleive it or not, the elements in the SVGs below have identical attributes. The only thing that differs between them are the viewBox attributes. </p>
+    <p>The width and the height of the view port in each of the square SVGs is identical (250px x 250px). However, the top left corner is being set to a different position on each SVG's coordinate plane, and the scale of the view box is being set at different levels. In the first, the viewbox sets the origin as the top left corner and the scale at 500 by 500. In the next square, the top left corner is moved 250 px up and to the left and the scale is set to 1000 px by 1000 px. The third square represents what happens if you go back to the original scale and move the top left corner down and to the right rather than up and to the left. The last square represents a 10x increase in the amount of the svg coordinate plan shown (5000 by 5000) and sets the top left corner of the view box to 2250 pixels up and to the left.</p>
+    <div>
+      <svg width="250" height="250" viewBox="0 0 500 500"style="background-color: grey;">
+        <circle r="100" cs="0" cy="0" fill="lightgrey" />
+        <circle r="100" cx="250" cy="250" fill="darkgray""/>
+        <circle r="100" cx="500" cy="500"fill="dimgray"/>
+      </svg>
+      <svg width="250" height="250" viewBox="-250 -250 1000 1000"style="background-color: grey;">
+        <circle r="100" cs="0" cy="0" fill="lightgrey" />
+        <circle r="100" cx="250" cy="250" fill="darkgray""/>
+        <circle r="100" cx="500" cy="500"fill="dimgray"/>
+      </svg>
+    </div>
+    <div>
+      <svg width="250" height="250" viewBox="250 250 500 500"style="background-color: grey;">
+        <circle r="100" cs="0" cy="0" fill="lightgrey" />
+        <circle r="100" cx="250" cy="250" fill="darkgray""/>
+        <circle r="100" cx="500" cy="500"fill="dimgray"/>
+      </svg>
+      <svg width="250" height="250" viewBox="-2250 -2250 5000 5000"style="background-color: grey;">
+        <circle r="100" cs="0" cy="0" fill="lightgrey" />
+        <circle r="100" cx="250" cy="250" fill="darkgray""/>
+        <circle r="100" cx="500" cy="500"fill="dimgray"/>
+      </svg>
+
+    </div>
+
+  </section>
+
 
 </body>
 </html>
