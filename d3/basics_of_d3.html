@@ -25,14 +25,11 @@
    const data = d3.range(100)
 
    const svg = d3.select('body').append('svg')
-
-   svg
     .style("background-color", "white")
     .attr("width", window.innerWidth)
     .attr("height", window.innerHeight)
 
-  let mask = svg
-    .append('mask')
+  let mask = svg.append('mask')
     .attr('width', window.innerWidth)
     .attr('height', window.innerHeight)
     .attr('id', 'mask')
@@ -43,19 +40,42 @@
     .attr('cy', window.innerHeight / 2)
     .attr('fill', 'white')
 
+  let mask2 = svg.append('mask')
+    .attr('id', 'mask2')
+
+  mask2.append('rect')
+    .attr('width' , window.innerWidth)
+    .attr('height',  window.innerHeight)
+    .attr('fill', 'white')
+
+  mask2.append('circle')
+    .attr('cx', window.innerWidth / 2)
+    .attr('cy', window.innerHeight / 2)
+    .attr('r', 500)
+    .attr('fill', 'black')
 
 
 
-    svg.selectAll('rect')
-      .data(data)
-      .join('rect')
-      .attr('y',(d) => 0)
-      .attr('x', (d)=> d * 20)
-      .attr("width",(d) => 10)
-      .attr("height",(d) => window.innerHeight)
-      .attr("fill", "black")
-      .attr('mask', 'url(#mask)')
-    //  document.body.appendChild(svg)
+
+  svg.append('g').selectAll('rect')
+    .data(data)
+    .join('rect')
+    .attr('y',(d) => 0)
+    .attr('x', (d)=> d * 20)
+    .attr("width",(d) => 10)
+    .attr("height",(d) => window.innerHeight)
+    .attr("fill", "black")
+    .attr('mask', 'url(#mask)')
+
+  svg.append('g').selectAll('rect')
+    .data(data)
+    .join('rect')
+    .attr('y', (d) => d * 20)
+    .attr('x', 0)
+    .attr('width', window.innerWidth)
+    .attr('height', 10)
+    .attr('mask', 'url(#mask2)')
+
 
   </script>
 
