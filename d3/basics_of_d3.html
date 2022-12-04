@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <title>D3 Basics</title>
+
+  <style>
+
+    body {
+      margin: 0px;
+    }
+
+  </style>
+</head>
+<body>
+
+
+
+
+  <script>
+
+   const data = d3.range(100)
+
+   const svg = d3.select('body').append('svg')
+
+   svg
+    .style("background-color", "white")
+    .attr("width", window.innerWidth)
+    .attr("height", window.innerHeight)
+
+  let mask = svg
+    .append('mask')
+    .attr('width', window.innerWidth)
+    .attr('height', window.innerHeight)
+    .attr('id', 'mask')
+
+  mask.append('circle')
+    .attr('r', 500)
+    .attr('cx', window.innerWidth / 2)
+    .attr('cy', window.innerHeight / 2)
+    .attr('fill', 'white')
+
+
+
+
+    svg.selectAll('rect')
+      .data(data)
+      .join('rect')
+      .attr('y',(d) => 0)
+      .attr('x', (d)=> d * 20)
+      .attr("width",(d) => 10)
+      .attr("height",(d) => window.innerHeight)
+      .attr("fill", "black")
+      .attr('mask', 'url(#mask)')
+    //  document.body.appendChild(svg)
+
+  </script>
+
+</body>
+</html>
